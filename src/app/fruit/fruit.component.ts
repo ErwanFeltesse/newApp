@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-fruit',
@@ -6,9 +6,14 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./fruit.component.scss'],
 })
 export class FruitComponent implements OnInit {
-  @Input() fruit: string = '';
+  @Input() public fruit: string = '';
+  @Output() private deleteF: EventEmitter<string> = new EventEmitter();
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  public deleteFruit() {
+    this.deleteF.emit(this.fruit);
+  }
 }

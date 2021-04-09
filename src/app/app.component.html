@@ -3,10 +3,18 @@
   class="container d-flex flex-column"
 >
   <div class="d-flex flex-row">
-    <input type="text" [(ngModel)]="fruit" class="m-10 flex-fill" />
-    <button (click)="addFruit()" class="btn btn-primary m-10">Ajouter</button>
+    <!-- <input  type="text" [(ngModel)]="fruit" class="m-10 flex-fill" /> -->
+    <input #myinput type="text" class="m-10 flex-fill" />
+    <!-- <button (click)="addFruit()" class="btn btn-primary m-10">Ajouter</button> -->
+    <button (click)="addFruit(myinput)" class="btn btn-primary m-10">
+      Ajouter
+    </button>
   </div>
   <ul class="list-primary m-10">
-    <app-fruit [fruit]="f" *ngFor="let f of fruits"></app-fruit>
+    <app-fruit
+      (deleteF)="deleteFruit($event)"
+      [fruit]="f"
+      *ngFor="let f of fruits"
+    ></app-fruit>
   </ul>
 </div>

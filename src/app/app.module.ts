@@ -7,7 +7,7 @@ import { FruitComponent } from './fruit/fruit.component';
 
 @NgModule({
   declarations: [AppComponent, FruitComponent],
-  imports: [BrowserModule, FormsModule],
+  imports: [BrowserModule /* FormsModule */],
   providers: [],
   bootstrap: [AppComponent],
 })
